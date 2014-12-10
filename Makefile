@@ -7,3 +7,4 @@ build:
 dist:
 	@rake dist
 
+.PHONY: test build dist
