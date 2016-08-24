@@ -1,0 +1,9 @@
+package: .
+import:
+- package: gopkg.in/alecthomas/kingpin.v2
+  version: ~2.2.2
+testImport:
+- package: gopkg.in/check.v1
+- package: github.com/stretchr/testify
+  subpackages:
+  - mock

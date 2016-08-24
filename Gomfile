@@ -1,3 +1,0 @@
-gom 'github.com/stretchr/testify/mock'
-gom 'gopkg.in/check.v1'
-gom 'gopkg.in/alecthomas/kingpin.v1'
