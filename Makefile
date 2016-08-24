@@ -4,6 +4,7 @@ ARCHS := "linux/amd64 linux/arm linux/arm64 darwin/amd64"
 GLIDE := $(shell command -v glide 2> /dev/null)
 CARPET := $(shell command -v go-carpet 2> /dev/null)
 MT := $(shell command -v multitail 2> /dev/null)
+PWD := $(shell cd .. && pwd)
 
 default: build
 
@@ -57,6 +58,23 @@ dist:
 	ls -la release
 	
 eject:
-	@read -p "Project name (Ctrl-C to abort): " name; echo ejecting $$name
+	@echo Ejecting will remove traces of go-cli-starter and
+	@echo use your own project name.
+	@echo
+	@echo We will *reset the git history* for this repo.
+	@echo
+	@echo If you committed changes, you have done so for 
+	@echo the original go-cli-stater.
+	@echo If so, feel free to bail out now with Ctrl-C and fix it.
+	@echo
+	@read -p "Project name (Ctrl-C to abort): " name; \
+		echo ejecting into $$name; \
+		sed -E -i '' "s/go-cli-starter/$$name/" *.go; \
+		rm -rf .git; git init .; git add .; git commit -am "inital import";\
+		cd ..; mv go-cli-starter $$name; \
+		echo; echo Done. please reset your shell with:;\
+		echo \
+		;echo cd ..\
+	 	;echo cd $$name
 
 .PHONY: test build dist setup install watch lint mocks coverage
