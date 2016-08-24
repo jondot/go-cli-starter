@@ -37,7 +37,7 @@ watch:
 	-cT ANSI -l "reflex -r '\.go' make lint" \
 
 lint:
-	@gometalinter
+	@gometalinter --deadline=15s
 
 test:
 	@go test -cover
