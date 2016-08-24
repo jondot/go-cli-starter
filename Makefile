@@ -48,7 +48,7 @@ coverage:
 build:
 	@go build
 
-dist:
+release:
 	@LDFLAGS='-X main.VERSION=${VERSION}' gox -osarch=${ARCHS} -output=build/{{.Dir}}_v${VERSION}_{{.OS}}_{{.Arch}}/{{.Dir}}
 	@cd build && find . -type d -mindepth 1 -exec tar czf {}.tar.gz {} \;
 	@rm -rf release
@@ -77,4 +77,4 @@ eject:
 		;echo cd ..\
 	 	;echo cd $$name
 
-.PHONY: test build dist setup install watch lint mocks coverage
+.PHONY: test build release setup install watch lint mocks coverage eject

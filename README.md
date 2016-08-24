@@ -2,33 +2,49 @@
 
 This is a Go based command line interface starter app (CLI).
 
-Included
+Included:
 
-* Testing/Mocking: gocheck + testify/mock
-* CLI Opts: flag (stdlib) / kingpin
-* Packaging: custom crosscompilation via `make dist` (Rakefile)
-* Dependencies: Gom
+* Dependency management: Glide
+* Testing/Mocking: `gocheck`, `testify/mock`, `mockery` for generation.
+* CLI Opts: `flag` (stdlib) or `kingpin` for POSIX.
+* Packaging: cross-compilation and release packaging
 
+Tools:
 
+* Lint with `metalinter`
+* Coverage with `go-carpet`
 
 ## Quick Start
 
-Clone this project, then `rm -rf .git`.
+Clone this project:
 
 ```bash
 $ git clone https://github.com/jondot/go-cli-starter
-$ mv go-cli-starter my-project && cd my-project
-$ rm -rf .git # you should be within my-project
-$ make build
+$ cd go-cli-starter
 ```
 
-`make` should be your entry point.
+Setup:
 
-* `make build` - build
-* `make test` - test
-* `make dist` - build and package binaries for multiple platforms
+```bash
+$ make setup
+$ make install
+```
 
-Note: You should edit your binary name in `Rakefile`.
+Explore:
+
+```
+$ make lint
+$ make test
+$ make coverage
+$ make mocks
+$ make watch
+```
+
+Make it your own:
+
+```
+$ make eject
+```
 
 
 # Contributing
