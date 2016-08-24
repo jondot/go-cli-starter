@@ -56,5 +56,7 @@ dist:
 	@rm -rf build
 	ls -la release
 	
+eject:
+	@read -p "Project name (Ctrl-C to abort): " name; echo ejecting $$name
 
 .PHONY: test build dist setup install watch lint mocks coverage
