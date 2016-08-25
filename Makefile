@@ -70,7 +70,7 @@ eject:
 	@read -p "Project name (Ctrl-C to abort): " name; \
 		echo ejecting into $$name; \
 		sed -E -i '' "s/go-cli-starter/$$name/" *.go; \
-		rm -rf .git; git init .; git add .; git commit -am "inital import";\
+		rm -rf .git; git init .; git add .; git commit -am "initial import";\
 		cd ..; mv go-cli-starter $$name; \
 		echo; echo Done. please reset your shell with:;\
 		echo \
