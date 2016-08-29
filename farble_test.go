@@ -5,6 +5,15 @@ import (
 	. "gopkg.in/check.v1"
 )
 
+// benchmarks
+func (s *CLISuite) BenchmarkIface(c *C) {
+	for i := 0; i < c.N; i++ {
+		f := NewFarble(&Counter{})
+		f.Metric.Inc()
+	}
+}
+
+// tests
 func (s *CLISuite) TestFarble(c *C) {
 	f := NewFarble(&Counter{})
 	c.Check(f.Metric.Inc(), Equals, 1)

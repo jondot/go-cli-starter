@@ -42,6 +42,9 @@ lint:
 test:
 	@go test -cover
 
+bench:
+	@go test -check.b -check.bmem
+
 coverage:
 	@go-carpet
 
@@ -77,4 +80,4 @@ eject:
 		;echo cd ..\
 	 	;echo cd $$name
 
-.PHONY: test build release setup install watch lint mocks coverage eject
+.PHONY: test build release setup install watch lint mocks coverage eject bench
