@@ -60,6 +60,9 @@ release:
 	@rm -rf build
 	ls -la release
 	
+brew_sha:
+	@ls release | grep darwin | xargs -I{} shasum -a 256 release/{}
+
 eject:
 	@echo Ejecting will remove traces of go-cli-starter and
 	@echo use your own project name.
@@ -80,4 +83,4 @@ eject:
 		;echo cd ..\
 	 	;echo cd $$name
 
-.PHONY: test build release setup install watch lint mocks coverage eject bench
+.PHONY: test build release setup install watch lint mocks coverage eject bench brew_sha
